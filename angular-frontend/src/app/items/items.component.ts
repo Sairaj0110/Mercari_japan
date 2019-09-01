@@ -15,18 +15,13 @@ export class ItemsComponent implements OnInit {
   categoriesArray = [];
   selectedID = 1;
   likedCount: any
-  itemSearch:any
-  userIsSearchingProduct = false;
-  // likedArray = [];
+  itemSearch: any
 
   constructor(private service: ServicesService, private router: Router, private datePipe: DatePipe) { }
 
   ngOnInit() {
     this.items();
     this.categories();
-  }
-  setUserIsSearchingProduct(){
-    this.userIsSearchingProduct = true;
   }
 
   items() {
@@ -45,8 +40,6 @@ export class ItemsComponent implements OnInit {
 
   click(id) {
     this.likedCount = id
-    // this.likedArray.push({id, selected:'true'})
-    // console.log(this.likedArray)
   }
 
   itemDetails(id, name) {

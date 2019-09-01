@@ -6,7 +6,7 @@
   <!-- Search -->
   <div class="form-group">
     <input [(ngModel)]="itemSearch" style="padding-left:15px;width: 70%;margin: auto;" type="text" class="form-control"
-      aria-describedby="basic-addon1" placeholder="Search for products and more" (change)="setUserIsSearchingProduct()">
+      aria-describedby="basic-addon1" placeholder="Search for products and more">
   </div>
   <!-- Categories -->
   <div style="text-align: center;margin-top: 25px;">
@@ -18,7 +18,7 @@
   <!-- Items list -->
   <div class="row" style="margin-top: 50px;">
     <div *ngFor="let item of itemsArray | filter : itemSearch; index as i">
-      <div *ngIf="item.category_id == selectedID && !userIsSearchingProduct"
+      <div *ngIf="item.category_id == selectedID"
         style="background-color: white;border-right: 15px solid #f3f5fa;border-bottom: 15px solid #f3f5fa;cursor: pointer;padding: 0px;"
         class="col-md-3 col-sm-3 col-xs-3">
         <div *ngIf="item.is_sold_out" (click)="itemDetails(item.id, item.name)"
@@ -36,23 +36,5 @@
           (click)="itemDetails(item.id, item.name)">${{item.price}}
         </div>
       </div>
-      <div *ngIf="userIsSearchingProduct"
-      style="background-color: white;border-right: 15px solid #f3f5fa;border-bottom: 15px solid #f3f5fa;cursor: pointer;padding: 0px;"
-      class="col-md-3 col-sm-3 col-xs-3">
-      <div *ngIf="item.is_sold_out" (click)="itemDetails(item.id, item.name)"
-        style="background-color: tomato;text-align:center;width: 270px;position: absolute;">
-        SOLD</div>
-      <img src={{item.image}} (click)="itemDetails(item.id, item.name)" style="width: 270px;height: 281px;" />
-      <div style="padding: 0px 10px;background-color: white;width: 270px;">
-        <span (click)="itemDetails(item.id, item.name)">{{item.name}}</span>
-        <span style="float: right;">
-          <i (click)="click(item.id)" class="fa fa-heart-o" aria-hidden="true"
-            [ngClass]="{ 'liked' : item.id == likedCount}"> {{item.like_count}}</i>
-        </span>
-      </div>
-      <div style="font-weight: bold;padding-left: 10px;background-color: white;width: 270px;"
-        (click)="itemDetails(item.id, item.name)">${{item.price}}
-      </div>
-    </div>
     </div>
   </div>
