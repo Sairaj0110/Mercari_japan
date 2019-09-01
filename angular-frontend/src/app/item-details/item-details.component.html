@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row" style="margin-left: 0px;">
+    <img
+      src="http://images.ctfassets.net/ktgg7d3rvrch/3y9128KjYQEYiECiO86o0Y/4e8619e17ebf67a94aecc1507135470b/mercari-japan.png"
+      style=" height: 90px;cursor: pointer;" (click)="goback()">
+  </div>
+  <div class="row" style="margin-top: 40px;">
+    <div class="col-md-5 col-sm-5 col-xs-5">
+        <div *ngIf="details?.is_sold_out"
+        style="background-color: tomato;text-align:center;width: 400px;position: absolute;height: 50px;padding: 15px 0px;">
+        SOLD</div>
+      <img src={{details?.image}} style="width: 400px;height: 480px;" />
+    </div>
+    <div class="col-md-7 col-sm-7 col-xs-7">
+      <div style="font-size: 18px;">{{details?.name}}</div>
+      <div *ngIf="details?.like_count > 0"
+        style="border-radius: 25px;border: 1px solid grey;width: 10%;text-align: center;">
+        <i class="fa fa-heart-o" aria-hidden="true"> {{details?.like_count}}</i>
+      </div>
+      <div>{{details?.description}}</div>
+      <div class="row"
+        style="background-color: brown;width: 40%;height: 7%;margin-left: 0px;font-size: 28px;padding-bottom: 40px;">
+        <span style="padding: 0px 5px;">${{details?.price}}</span>
+        <span style="font-size: 12px;margin-top: 15px;">{{details?.shipping_fee}}</span>
+        <span style="margin-left: 57px;font-size: 16px;background-color: red;cursor: pointer;height: 30px;margin-top: 5px;padding: 5px;">
+          BUY NOW</span>
+      </div>
+    </div>
+  </div>
+</div>
